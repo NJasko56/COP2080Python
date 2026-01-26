@@ -23,9 +23,15 @@ while True:
    # Validate input is in correct format or range, if not notify "Please enter grade as number 0-100"
    # code here
     if User.upper() == 'A':
-        print("Ye")
-
-
+        name = str(input("Enter the name of the student: "))
+        if name == grades:
+            print("Sorry, that student is already present.")
+        else:
+            ofstudent = int(input("Enter the student's grade: " ))
+            if ofstudent>100 or ofstudent< 0:
+                print("Please enter grade as number 0-100")
+            else:
+                grades[name] = ofstudent
    # Handle removing a student if user inputs 'R'
    # Check input for "What student do you want to remove? "
    # use pop to remove key/value form grades
@@ -34,12 +40,15 @@ while True:
    # code here
     if User.upper() == 'R':
         removal = input("What student do you want to remove? ")
-        if removal == grade:
+        ready = False
+        for grade in grades:
+            if removal == grade:
+                ready = True
+        if ready == True:
             grades.pop(removal)
         else:
             print("Sorry, that student doesn't exist and couldn't be removed.")
- 
-
+        ready = False
    # Handle modifying a student grade if user inputs 'M'
    # "Enter the name of the student to modify: "
    # Convert grade into integer
@@ -48,26 +57,32 @@ while True:
    # If student doesn't exist "Sorry, that student doesn't exist and couldn't be modified."
    # code here
     if User.upper() == 'M':
-        modify = input("What student do you want to remove? ")
-        if modify == grade:
-            
+        change = False
+        modify = input("Enter the name of the student to modify: ")
+        for grade in grades:
+            if modify == grade:
+                change =True
+        if change == True:
+            print('The old grade is ', grades[modify])
+            grades[modify] = int(input("Enter the new grade: "))
         else:
             print("Sorry, that student doesn't exist and couldn't be modified.")
+        change = False
    # Handle printing grade average as a string if user input is 'P'
    # Use "The average grade is "
    # Handle printing all of the student names with associated grade
    # Display explictly as strings
    # code here
     elif User.upper() == 'P':
-        float(average) = 0
+        average = 0.0
         count = 0
         for grade in grades:
-            average += grade
-            ++count
+            
+            average += grades[grade]
+            count += 1
         average = average/count
         print(f'The average grade is {average}')
-        for grade in grades:
-            print(grade)
+        print(grades)
       
 
    # Handle the case for quiting if user inputs 'Q' "Goodbye!"
@@ -78,6 +93,7 @@ while True:
 
    # Handle the case of invalid input. "Sorry, that wasn't a valid choice."
    # code here
-    else:
-        print("Sorry, that wasn't a valid choice.")
-        continue
+    #else:
+        #print("Sorry, that wasn't a valid choice.")
+        #continue
+
