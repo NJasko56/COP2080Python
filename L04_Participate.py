@@ -19,5 +19,5 @@ while not done:
         continue
     else:
         print("Compute tax")
-        get_inputs()
+        price, tax = get_inputs()
         print(f'The calculated price is {calculate_price_with_tax(price, tax)}')
