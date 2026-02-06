@@ -15,28 +15,53 @@
 #print(f'Your character has droped from {hp} hit points to \
 #{hp_damage(hp)} hit points available')
 
-def scoreToNumber(score):
-    score = str.upper(score)
-    result = 0
-    first = score[0]
-    if first == "G" :
-        result = 10
-    elif first == "O" :
-        result = 5
-    elif first == "P" :
-        result = 3
-    return result
+#def scoreToNumber(score):
+#    '''
+ #   Converts user inputed str scores to number scores.
+#
+ #       Parameters:
+  #              score(str): A single letter
+   #     
+    #    Returns:
+     #           result(int): A decimal integer based on the str score
+#    '''
+#    score = str.upper(score)
+#    result = 0
+#    first = score[0]
+#    if first == "G" :
+#        result = 10
+#    elif first == "O" :
+#        result = 5
+#    elif first == "P" :
+#        result = 3
+#    return result
 
-def main():
-    score1 = input('Enter score 1 as Great, Ok or Poor: ')
-    score2 = input('Enter score 2 as Great, Ok or Poor: ')
-    score3 = input('Enter score 3 as Great, Ok or Poor: ')
-    x1 = scoreToNumber(score1)
-    x2 = scoreToNumber(score2)
-    x3 = scoreToNumber(score3)
-    xmax = max(x1, x2, x3)
-    some_avg = (x1 + x2 + x3) / 3
-    print(f'The maximum score was {xmax}')
-    print(f'The avg score on 1-10 scale would have been {round(some_avg, 2)}')
+#def main():
+#    score1 = input('Enter score 1 as Great, Ok or Poor: ')
+#    score2 = input('Enter score 2 as Great, Ok or Poor: ')
+#    score3 = input('Enter score 3 as Great, Ok or Poor: ')
+#    x1 = scoreToNumber(score1)
+#    x2 = scoreToNumber(score2)
+#    x3 = scoreToNumber(score3)
+#    xmax = max(x1, x2, x3)
+#    some_avg = (x1 + x2 + x3) / 3
+#    print(f'The maximum score was {xmax}')
+#    print(f'The avg score on 1-10 scale would have been {round(some_avg, 2)}')
 
-main()
+#main()
+
+#grades = [95, 88, 85, 75]
+#letter_grade = ['A', 'B+', 'B', 'C']
+#print('The original list ',letter_grade)
+#print('The zipped tuples ', list(zip(letter_grade, grades)))
+#print('Next is a map-lambda version')
+#version = list(map(lambda *a: a, letter_grade, grades))
+#print(version)
+
+#print([(x, y) for x in ['a', 'b', 'c'] for y in ['first','b', 3] if x != y])
+
+#check = lambda x: x*-1 
+#print(check, x [ (x) for x in [7, 5, -4, 6] if x<0])
+
+x = [y*-1 for y in [7, 5, -4, 6] if y<0]
+print(x)
