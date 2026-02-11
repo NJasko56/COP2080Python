@@ -2,15 +2,13 @@
 class Counter:
 
     def getValue(self) :
-        return self._value
+        return self._strokes
     
     def click(self) :
-        self._value = self._value + 1
-        if self._value > self._limit :
-            print("Limit Exceeded")
+        self._strokes = self._strokes + '|'
 
     def reset(self) :
-        self._value = 0
+        self._strokes = ""
 
     def __init__(self):
         self._limit = 0
