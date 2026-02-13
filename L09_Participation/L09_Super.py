@@ -65,9 +65,10 @@ class Car:
         self.engine = self.engine_cls()  # Has-A Engine
         self.headlights = self.headlights_cls()
     def start(self):
+        self.headlights.lights_on()
         print(
             'Starting engine {0} for car {1}... Wroom, wroom!'
-            .format(
+            .format( 
                 self.engine.__class__.__name__,
                 self.__class__.__name__)
         )
