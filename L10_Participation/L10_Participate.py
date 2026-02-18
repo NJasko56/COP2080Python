@@ -51,6 +51,7 @@ class Menu:
     #
     def __init__(self):
         self._options = []
+        
 
     ## Adds an option to the end of menu.
     #  @param option the option to add
@@ -66,13 +67,22 @@ class Menu:
         done = False
         while not done:
             print('-' * 80, '\n')
+            print("What's the most important meal of the day?")
             for i in range(len(self._options)):
                 print("%d %s" % (i + 1, self._options[i]))
 
             userChoice = int(input())
-            #if userChoice >= 1 and userChoice < len(self._options):
-            if userChoice < 1 or userChoice > len(self._options):
-                print('Enter a 1-4 only')
+            if userChoice == 1 and userChoice < len(self._options):
+                print("That's correct")
+                quit()
+            elif userChoice == 2 and userChoice < len(self._options):
+                print("Sorry, that's incorrect")
+                quit()
+            elif userChoice == 3 and userChoice <= len(self._options):
+                print("Sorry, that's incorrect")
+                quit()
+            elif userChoice < 1 or userChoice > len(self._options):
+                print('Enter a 1-3 only')
                 continue
             #place holder
                     
@@ -87,6 +97,9 @@ def main():
 
     def buildOptions():
         #placholder
+        mainMenu.addOption("Breakfast")
+        mainMenu.addOption("Lunch")
+        mainMenu.addOption("Dinner")
 
     buildOptions()
     choice = mainMenu.getInput()
